@@ -1,0 +1,98 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Toolbar — Styles
+   ───────────────────────────────────────────────────────────────────────────── */
+.toolbar {
+  position: fixed;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: var(--sp-2);
+  z-index: 100;
+}
+
+.toolbar-divider {
+  width: 24px;
+  height: 1px;
+  background: var(--surface-divider);
+  margin: var(--sp-1) 0;
+}
+
+/* ── Tool Button ─────────────────────────────────────────────────────────── */
+.tool-btn {
+  position: relative;
+  width: var(--tool-size);
+  height: var(--tool-size);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--tool-radius);
+  color: var(--tool-color-idle);
+  transition:
+    color var(--duration-fast) var(--ease-smooth),
+    background var(--duration-fast) var(--ease-smooth);
+}
+
+.tool-btn:hover {
+  color: var(--tool-color-hover);
+}
+
+.tool-btn--active {
+  color: var(--tool-color-active);
+}
+
+/* Animated background pill (layoutId="activeTool") */
+.tool-btn__bg {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--tool-radius);
+  background: var(--color-brand-primary);
+  z-index: -1;
+}
+
+.tool-btn__icon {
+  font-size: 18px;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  font-style: normal;
+}
+
+/* ── Tooltip ─────────────────────────────────────────────────────────────── */
+.tool-tooltip {
+  position: absolute;
+  left: calc(100% + 10px);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 5px var(--sp-3);
+  background: var(--toast-bg);
+  color: var(--toast-text);
+  border-radius: var(--toast-radius);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  pointer-events: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+
+.tool-tooltip__kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 5px;
+  font-size: var(--font-size-xs);
+  font-family: var(--font-mono);
+  font-style: normal;
+}

@@ -1,0 +1,213 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   BoardCanvas — Styles
+   ───────────────────────────────────────────────────────────────────────────── */
+.board-canvas-root {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--canvas-bg);
+}
+
+/* ── Top bar ─────────────────────────────────────────────────────────────── */
+.board-topbar {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: 0 var(--sp-6);
+  height: 48px;
+  border-radius: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: var(--toolbar-border);
+}
+
+.topbar-back {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 4px var(--sp-2);
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  transition: color var(--duration-fast);
+  white-space: nowrap;
+}
+
+.topbar-back:hover {
+  color: var(--color-brand-primary);
+}
+
+/* Title */
+.topbar-title-wrap {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.topbar-title {
+  background: none;
+  border: none;
+  cursor: text;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 3px var(--sp-2);
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  max-width: 320px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background var(--duration-fast);
+}
+
+.topbar-title:hover {
+  background: var(--tool-bg-hover);
+}
+
+.topbar-title-input {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--text-primary);
+  border: 1.5px solid var(--color-brand-primary);
+  border-radius: 6px;
+  padding: 3px var(--sp-2);
+  background: var(--surface-overlay);
+  font-family: var(--font-sans);
+  width: 220px;
+  text-align: center;
+  outline: none;
+  backdrop-filter: blur(8px);
+}
+
+/* Zoom */
+.topbar-zoom {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.zoom-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  font-size: 16px;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--duration-fast), color var(--duration-fast);
+}
+
+.zoom-btn:hover {
+  background: var(--tool-bg-hover);
+  color: var(--text-primary);
+}
+
+.zoom-reset {
+  font-size: 14px;
+}
+
+.zoom-val {
+  font-size: var(--font-size-xs);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+  min-width: 38px;
+  text-align: center;
+}
+
+/* ── Canvas ──────────────────────────────────────────────────────────────── */
+.wande-canvas-area {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.drawnix-embed {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+  transition: transform 0.12s var(--ease-smooth);
+}
+
+/* Drawnix placeholder (remove once real component is wired) */
+.drawnix-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drawnix-placeholder__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+  text-align: center;
+}
+
+.drawnix-placeholder__icon {
+  font-size: 56px;
+  background: var(--color-brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.drawnix-placeholder__text {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.drawnix-placeholder__hint {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+}
+
+/* ── Status bar ──────────────────────────────────────────────────────────── */
+.status-bar {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 6px var(--sp-4);
+  background: var(--toast-bg);
+  color: var(--toast-text);
+  border-radius: 20px;
+  font-size: var(--font-size-xs);
+  z-index: 100;
+  pointer-events: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.22);
+}
+
+.status-bar__item {
+  opacity: 0.8;
+}
+
+.status-bar__divider {
+  width: 1px;
+  height: 12px;
+  background: rgba(255,255,255,0.2);
+}
+
+.status-bar__saved {
+  color: #34d399;
+  opacity: 1;
+}
